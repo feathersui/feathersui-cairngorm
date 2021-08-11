@@ -1,0 +1,14 @@
+{
+  "name": "cairngorm-openfl",
+  "url": "https://feathersui.com/",
+  "license": "BSD",
+  "tags": ["openfl", "feathersui", "cairngorm", "microarchitecture"],
+  "description": "Cairngorm framework for OpenFL",
+  "version": "2.3.0-alpha.1",
+  "classPath": "src",
+  "dependencies": {
+    "openfl": ""
+  },
+  "contributors": ["bowlerhat"],
+  "releasenote": "Initial release"
+}
