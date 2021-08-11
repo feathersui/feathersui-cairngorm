@@ -87,6 +87,15 @@ class CairngormEventDispatcher {
 	}
 
 	/**
+		Releases the current instance so that the next call to `getInstance()`
+		returns a new instance. Does not remove event listeners on the old
+		instance.
+	**/
+	public static function releaseInstance():Void {
+		instance = null;
+	}
+
+	/**
 		Adds an event listener.
 	**/
 	public function addEventListener<T>(type:EventType<T>, listener:T->Void, useCapture:Bool = false, priority:Int = 0, useWeakReference:Bool = false):Void {
