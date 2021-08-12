@@ -183,6 +183,9 @@ class ViewLocator {
 		view name
 	**/
 	public function registrationExistsFor(viewName:String):Bool {
+		if (viewName == null) {
+			return false;
+		}
 		return viewHelpers.exists(viewName);
 	}
 }
