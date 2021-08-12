@@ -36,6 +36,8 @@ class AbstractServices implements IServices {
 	private static final FLEX_VERSION:String = "FlexVersion";
 	private static final AUTHENTICATED:String = "authenticated";
 
+	private function new() {}
+
 	private var _timeout:Int = 0;
 
 	/**
