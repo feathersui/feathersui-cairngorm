@@ -86,6 +86,14 @@ class ViewLocator {
 	}
 
 	/**
+		Releases the current instance so that the next call to `getInstance()`
+		returns a new instance.
+	**/
+	public static function releaseInstance():Void {
+		viewLocator = null;
+	}
+
+	/**
 		The ViewLocator constructor should only be created
 		through the static singleton getInstance() method.  ViewLocator
 		maintains a hash map of ViewHelpers, keyed on viewName with a

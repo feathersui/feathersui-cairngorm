@@ -88,8 +88,7 @@ class CairngormEventDispatcher {
 
 	/**
 		Releases the current instance so that the next call to `getInstance()`
-		returns a new instance. Does not remove event listeners on the old
-		instance.
+		returns a new instance.
 	**/
 	public static function releaseInstance():Void {
 		instance = null;

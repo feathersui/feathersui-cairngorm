@@ -76,6 +76,14 @@ class ServiceLocator implements IServiceLocator {
 		return instance;
 	}
 
+	/**
+		Releases the current instance so that the next call to `getInstance()`
+		returns a new instance.
+	**/
+	public static function releaseInstance():Void {
+		_instance = null;
+	}
+
 	// Constructor should be private but current AS3.0 does not allow it
 	private function new() {
 		if (_instance != null) {
