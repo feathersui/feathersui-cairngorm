@@ -31,12 +31,12 @@ jobs:
           name: cairngorm-openfl-docs
           path: bin/api/
           if-no-files-found: error
-      # - name: Deploy to unstable
-      #   if: ${{ github.event_name != 'pull_request' }}
-      #   uses: garygrossgarten/github-action-scp@release
-      #   with:
-      #     local: bin/api
-      #     remote: api.feathersui.com/cairngorm-openfl/unstable
-      #     host: ${{ secrets.SSH_HOST }}
-      #     username: ${{ secrets.SSH_USER }}
-      #     password: ${{ secrets.SSH_PASS }}
+      - name: Deploy to unstable
+        if: ${{ github.event_name != 'pull_request' }}
+        uses: garygrossgarten/github-action-scp@release
+        with:
+          local: bin/api
+          remote: api.feathersui.com/cairngorm-openfl/unstable
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          password: ${{ secrets.SSH_PASS }}
