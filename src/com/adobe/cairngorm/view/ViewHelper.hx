@@ -66,6 +66,8 @@ import openfl.events.Event;
 	@see `com.adobe.cairngorm.view.ViewLocator`
 **/
 class ViewHelper /* implements IMXMLObject */ {
+	public function new() {}
+
 	/**
 		The view referred to by this view helper
 	**/
