@@ -109,16 +109,16 @@ class AbstractServices implements IServices {
 	}
 
 	/**
-		Return all the accessors on this object.
+		Return all the instance fields on this object.
 
 		@param serviceLocator the IServiceLocator instance.
-		@return this object's accessors.
+		@return this object's instance fields.
 	**/
-	private function getAccessors(serviceLocator:IServiceLocator):Array<String> {
-		// var description:XML = describeType(serviceLocator);
-		// var accessors:XMLList = description.accessor.(@access == "readwrite").@name;
-		// return accessors;
-		return [];
+	private function getInstanceFields(serviceLocator:IServiceLocator):Array<String> {
+		// this is slightly different than the original behavior
+		// in AS3, getAccessors() returned only getter/setter accessors
+		// in Haxe, it returns all fields, including variables and methods
+		return Type.getInstanceFields(Type.getClass(serviceLocator));
 	}
 
 	private function serviceLogout(service:Dynamic):Void {

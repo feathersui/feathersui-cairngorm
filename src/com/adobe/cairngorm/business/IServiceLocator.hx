@@ -32,17 +32,20 @@
 
 package com.adobe.cairngorm.business;
 
+import feathers.rpc.http.HTTPService;
+
 /**
 	IServiceLocator defines an interface for service locator. Its intention is
 	to support unit testing.
 **/
 interface IServiceLocator {
-	// /**
-	// 	Return the HTTPService for the given service id.
-	// 	@param serviceId the service id.
-	// 	@return the RemoteObject.
-	// **/
-	// function getHTTPService(serviceId:String):HTTPService;
+	/**
+		Return the HTTPService for the given service id.
+		@param serviceId the service id.
+		@return the RemoteObject.
+	**/
+	function getHTTPService(serviceId:String):HTTPService;
+
 	// /**
 	// 	Return the RemoteObject for the given service id.
 	// 	@param serviceId the service id.

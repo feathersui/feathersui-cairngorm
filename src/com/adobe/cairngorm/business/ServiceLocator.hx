@@ -32,6 +32,10 @@
 
 package com.adobe.cairngorm.business;
 
+import feathers.rpc.AbstractInvoker;
+import feathers.rpc.AbstractService;
+import feathers.rpc.http.HTTPService;
+
 /**
 	The ServiceLocator allows service to be located and security
 	credentials to be managed.
@@ -46,7 +50,8 @@ package com.adobe.cairngorm.business;
 class ServiceLocator implements IServiceLocator {
 	private static var _instance:ServiceLocator;
 
-	// private var _httpServices:HTTPServices;
+	private var _httpServices:HTTPServices;
+
 	// private var _remoteObjects:RemoteObjects;
 	// private var _webServices:WebServices;
 	private var _timeout:Int = 0;
@@ -106,7 +111,7 @@ class ServiceLocator implements IServiceLocator {
 	**/
 	@:meta(Deprecated("You should now use one of the strongly typed methods for returning a service."))
 	@:deprecated("You should now use one of the strongly typed methods for returning a service.")
-	public function getService(serviceId:String):Dynamic /* AbstractService */ {
+	public function getService(serviceId:String):AbstractService {
 		return getServiceForId(serviceId);
 	}
 
@@ -123,18 +128,19 @@ class ServiceLocator implements IServiceLocator {
 	**/
 	@:meta(Deprecated("You should now use one of the strongly typed methods for returning a service."))
 	@:deprecated("You should now use one of the strongly typed methods for returning a service.")
-	public function getInvokerService(serviceId:String):Dynamic /* AbstractInvoker */ {
+	public function getInvokerService(serviceId:String):AbstractInvoker {
 		return getServiceForId(serviceId);
 	}
 
-	// /**
-	// 	Return the HTTPService for the given name.
-	// 	@param name the name of the HTTPService
-	// 	@return the HTTPService.
-	// **/
-	// public function getHTTPService(name:String):HTTPService {
-	// 	return cast(httpServices.getService(name), HTTPService);
-	// }
+	/**
+		Return the HTTPService for the given name.
+		@param name the name of the HTTPService
+		@return the HTTPService.
+	**/
+	public function getHTTPService(name:String):HTTPService {
+		return cast(httpServices.getService(name), HTTPService);
+	}
+
 	// /**
 	// 	Return the RemoteObject for the given name.
 	// 	@param name the name of the RemoteObject.
@@ -159,7 +165,7 @@ class ServiceLocator implements IServiceLocator {
 		@param password the password to set.
 	**/
 	public function setCredentials(username:String, password:String):Void {
-		// httpServices.setCredentials(username, password);
+		httpServices.setCredentials(username, password);
 		// remoteObjects.setCredentials(username, password);
 		// webServices.setCredentials(username, password);
 	}
@@ -170,7 +176,7 @@ class ServiceLocator implements IServiceLocator {
 		@param password the password to set.
 	**/
 	public function setRemoteCredentials(username:String, password:String):Void {
-		// httpServices.setRemoteCredentials(username, password);
+		httpServices.setRemoteCredentials(username, password);
 		// remoteObjects.setRemoteCredentials(username, password);
 		// webServices.setRemoteCredentials(username, password);
 	}
@@ -181,12 +187,12 @@ class ServiceLocator implements IServiceLocator {
 	public function logout():Void {
 		// First release the resources held by the service. We release the
 		// resources first as the logout logs the user out at a channel level.
-		// httpServices.release();
+		httpServices.release();
 		// remoteObjects.release();
 		// webServices.release();
 
 		// Now log the services out.
-		// httpServices.logout();
+		httpServices.logout();
 		// remoteObjects.logout();
 		// webServices.logout();
 	}
@@ -203,15 +209,17 @@ class ServiceLocator implements IServiceLocator {
 		return _timeout;
 	}
 
-	// private var httpServices(get, never):HTTPServices;
-	// private function get_httpServices():HTTPServices {
-	// 	if (_httpServices == null) {
-	// 		_httpServices = new HTTPServices();
-	// 		_httpServices.timeout = timeout;
-	// 		_httpServices.register(this);
-	// 	}
-	// 	return _httpServices;
-	// }
+	private var httpServices(get, never):HTTPServices;
+
+	private function get_httpServices():HTTPServices {
+		if (_httpServices == null) {
+			_httpServices = new HTTPServices();
+			_httpServices.timeout = timeout;
+			_httpServices.register(this);
+		}
+		return _httpServices;
+	}
+
 	// private var remoteObjects(get, never):RemoteObjects;
 	// private function get_remoteObjects():RemoteObjects {
 	// 	if (_remoteObjects == null) {

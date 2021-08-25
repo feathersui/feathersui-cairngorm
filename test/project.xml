@@ -8,6 +8,8 @@
 	<source path="../src" />
 	
 	<haxelib name="openfl" />
+	<haxelib name="feathersui" />
+	<haxelib name="feathersui-rpc-services" />
 	<haxelib name="utest" />
 
 	<template path="templates" if="html5"/>

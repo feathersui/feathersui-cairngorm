@@ -7,6 +7,8 @@
 	<source path="src" />
 	
 	<haxelib name="openfl" />
+	<haxelib name="feathersui" />
+	<haxelib name="feathersui-rpc-services" />
 
 	<haxeflag name="--macro" value="include('com.adobe.cairngorm')"/>
 

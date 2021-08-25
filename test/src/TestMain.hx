@@ -8,6 +8,7 @@ class TestMain extends Sprite {
 		super();
 
 		var runner = new Runner();
+		runner.addCase(new com.adobe.cairngorm.business.TestServiceLocator());
 		runner.addCase(new com.adobe.cairngorm.control.TestCairngormEvent());
 		runner.addCase(new com.adobe.cairngorm.control.TestCairngormEventDispatcher());
 		runner.addCase(new com.adobe.cairngorm.control.TestFrontController());
