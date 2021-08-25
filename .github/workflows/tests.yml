@@ -12,7 +12,7 @@ jobs:
   test-neko:
     strategy:
       matrix:
-        haxe-version: [4.2.1]
+        haxe-version: [4.2.3]
 
     runs-on: ubuntu-latest
 
@@ -23,8 +23,10 @@ jobs:
           haxe-version: ${{ matrix.haxe-version }}
       - name: Set up Haxelib dependencies
         run: |
-          haxelib install lime 7.9.0 --quiet
-          haxelib install openfl 9.1.0 --quiet
+          haxelib install lime --quiet
+          haxelib install openfl --quiet
+          haxelib install feathersui --quiet
+          haxelib git feathersui-rpc-services https://github.com/feathersui/feathersui-rpc-services.git --quiet
           haxelib install utest --quiet
           haxelib dev cairngorm-openfl $GITHUB_WORKSPACE
       - name: Run Tests
@@ -34,7 +36,7 @@ jobs:
   test-air:
     strategy:
       matrix:
-        haxe-version: [4.2.1]
+        haxe-version: [4.2.3]
 
     runs-on: windows-latest
 
@@ -46,8 +48,10 @@ jobs:
           haxe-version: ${{ matrix.haxe-version }}
       - name: Set up Haxelib dependencies
         run: |
-          haxelib install lime 7.9.0 --quiet
-          haxelib install openfl 9.1.0 --quiet
+          haxelib install lime --quiet
+          haxelib install openfl --quiet
+          haxelib install feathersui --quiet
+          haxelib git feathersui-rpc-services https://github.com/feathersui/feathersui-rpc-services.git --quiet
           haxelib install utest --quiet
           haxelib dev cairngorm-openfl ${{ github.workspace }} 
           haxelib run lime config AIR_SDK ${{ env.AIR_HOME }}

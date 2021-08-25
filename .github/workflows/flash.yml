@@ -16,11 +16,13 @@ jobs:
       - uses: actions/checkout@v2
       - uses: krdlab/setup-haxe@v1
         with:
-          haxe-version: 4.2.1
+          haxe-version: 4.2.3
       - name: Set up Haxelib dependencies
         run: |
-          haxelib install lime 7.9.0 --quiet
-          haxelib install openfl 9.1.0 --quiet
+          haxelib install lime --quiet
+          haxelib install openfl --quiet
+          haxelib install feathersui --quiet
+          haxelib git feathersui-rpc-services https://github.com/feathersui/feathersui-rpc-services.git --quiet
           haxelib dev cairngorm-openfl $GITHUB_WORKSPACE
       - name: Build Flash .swc library
         run: haxelib run openfl build flash -debug
