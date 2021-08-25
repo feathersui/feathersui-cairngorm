@@ -1,4 +1,4 @@
 -cmd haxelib run openfl build ../project.xml html5 -xml -clean
 
 --next
--cmd haxelib run dox -o ../bin/api -i ../bin/html5/types.xml -in com.adobe.cairngorm --title "Cairngorm API Reference (Haxe/OpenFL)" -theme ./feathersui-theme -D website "https://feathersui.com" -D textColor 0x292522 -D source-path "https://github.com/BowlerHatLLC/feathersui-cairngorm/tree/master/src/"
+-cmd haxelib run dox -o ../bin/api -i ../bin/html5/types.xml --include com.adobe.cairngorm --toplevel-package com.adobe.cairngorm --title "Cairngorm API Reference (Haxe/OpenFL)" -theme ./feathersui-theme -D website "https://feathersui.com" -D textColor 0x292522 -D source-path "https://github.com/BowlerHatLLC/feathersui-cairngorm/tree/master/src/"
