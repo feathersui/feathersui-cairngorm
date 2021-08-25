@@ -28,7 +28,7 @@ jobs:
           haxelib install feathersui --quiet
           haxelib git feathersui-rpc-services https://github.com/feathersui/feathersui-rpc-services.git --quiet
           haxelib install utest --quiet
-          haxelib dev cairngorm-openfl $GITHUB_WORKSPACE
+          haxelib dev feathersui-cairngorm $GITHUB_WORKSPACE
       - name: Run Tests
         working-directory: test
         run: haxelib run openfl test neko
@@ -53,7 +53,7 @@ jobs:
           haxelib install feathersui --quiet
           haxelib git feathersui-rpc-services https://github.com/feathersui/feathersui-rpc-services.git --quiet
           haxelib install utest --quiet
-          haxelib dev cairngorm-openfl ${{ github.workspace }} 
+          haxelib dev feathersui-cairngorm ${{ github.workspace }} 
           haxelib run lime config AIR_SDK ${{ env.AIR_HOME }}
       - name: Run Tests
         working-directory: test

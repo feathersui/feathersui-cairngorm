@@ -1,4 +1,4 @@
-# cairngorm-openfl Change Log
+# feathersui-cairngorm Change Log
 
 ## 2.3.0-alpha.1 (????-??-??)
 

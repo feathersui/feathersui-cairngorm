@@ -24,13 +24,13 @@ jobs:
           haxelib install feathersui --quiet
           haxelib git feathersui-rpc-services https://github.com/feathersui/feathersui-rpc-services.git --quiet
           haxelib install dox --quiet
-          haxelib dev cairngorm-openfl $GITHUB_WORKSPACE
+          haxelib dev feathersui-cairngorm $GITHUB_WORKSPACE
       - name: Build API reference
         working-directory: docs
         run: haxe docs.hxml
       - uses: actions/upload-artifact@v2
         with:
-          name: cairngorm-openfl-docs
+          name: feathersui-cairngorm-docs
           path: bin/api/
           if-no-files-found: error
       - name: Deploy to unstable
@@ -38,7 +38,7 @@ jobs:
         uses: garygrossgarten/github-action-scp@release
         with:
           local: bin/api
-          remote: api.feathersui.com/cairngorm-openfl/unstable
+          remote: api.feathersui.com/feathersui-cairngorm/unstable
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           password: ${{ secrets.SSH_PASS }}

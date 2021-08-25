@@ -1,6 +1,6 @@
-# Cairngorm for OpenFL and Feathers UI
+# Cairngorm for Feathers UI
 
-A port of Cairngorm framework to Haxe and OpenFL.
+A port of Cairngorm framework from [Apache Flex](https://flex.apache.org/) (formerly Adobe Flex) to [Feathers UI](https://feathersui.com/) for [Haxe](https://haxe.org/) and [OpenFL](https://openfl.org/).
 
 ## What is Cairngorm
 
@@ -14,7 +14,7 @@ This library is not yet available on Haxelib, so you'll need to install it and i
 
 ```sh
 haxelib git feathersui-rpc-services https://github.com/feathersui/feathersui-rpc-services.git
-haxelib git cairngorm-openfl https://github.com/feathersui/cairngorm-openfl.git
+haxelib git feathersui-cairngorm https://github.com/feathersui/feathersui-cairngorm.git
 ```
 
 ## Project Configuration
@@ -23,5 +23,5 @@ After installing the libraries above, add them to your OpenFL _project.xml_ file
 
 ```xml
 <haxelib name="feathersui-rpc-services" />
-<haxelib name="cairngorm-openfl" />
+<haxelib name="feathersui-cairngorm" />
 ```

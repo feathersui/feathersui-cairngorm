@@ -2,7 +2,7 @@
 <project>
 	
 	<meta title="Cairngorm" package="com.adobe.cairngorm" version="1.0.0" company="Bowler Hat LLC" />
-	<app main="openfl.display.Sprite" path="bin" file="cairngorm-openfl" />
+	<app main="openfl.display.Sprite" path="bin" file="feathersui-cairngorm" />
 	
 	<source path="src" />
 	

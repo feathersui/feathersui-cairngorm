@@ -1,4 +1,4 @@
-# cairngorm-openfl haxelib
+# feathersui-cairngorm haxelib
 
 To package a _.zip_ file for Haxelib, run the following command:
 
