@@ -32,6 +32,7 @@
 
 package com.adobe.cairngorm.business;
 
+import feathers.rpc.remoting.RemoteObject;
 import feathers.rpc.http.HTTPService;
 
 /**
@@ -46,12 +47,13 @@ interface IServiceLocator {
 	**/
 	function getHTTPService(serviceId:String):HTTPService;
 
-	// /**
-	// 	Return the RemoteObject for the given service id.
-	// 	@param serviceId the service id.
-	// 	@return the RemoteObject.
-	// **/
-	// function getRemoteObject(serviceId:String):RemoteObject;
+	/**
+		Return the RemoteObject for the given service id.
+		@param serviceId the service id.
+		@return the RemoteObject.
+	**/
+	function getRemoteObject(serviceId:String):RemoteObject;
+
 	// /**
 	// 	Return the WebService for the given service id.
 	// 	@param serviceId the service id.

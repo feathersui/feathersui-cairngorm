@@ -32,6 +32,7 @@
 
 package com.adobe.cairngorm.business;
 
+import feathers.rpc.remoting.RemoteObject;
 import feathers.rpc.AbstractInvoker;
 import feathers.rpc.AbstractService;
 import feathers.rpc.http.HTTPService;
@@ -51,8 +52,7 @@ class ServiceLocator implements IServiceLocator {
 	private static var _instance:ServiceLocator;
 
 	private var _httpServices:HTTPServices;
-
-	// private var _remoteObjects:RemoteObjects;
+	private var _remoteObjects:RemoteObjects;
 	// private var _webServices:WebServices;
 	private var _timeout:Int = 0;
 
@@ -141,14 +141,15 @@ class ServiceLocator implements IServiceLocator {
 		return cast(httpServices.getService(name), HTTPService);
 	}
 
-	// /**
-	// 	Return the RemoteObject for the given name.
-	// 	@param name the name of the RemoteObject.
-	// 	@return the RemoteObject.
-	// **/
-	// public function getRemoteObject(name:String):RemoteObject {
-	// 	return cast(remoteObjects.getService(name), RemoteObject);
-	// }
+	/**
+		Return the RemoteObject for the given name.
+		@param name the name of the RemoteObject.
+		@return the RemoteObject.
+	**/
+	public function getRemoteObject(name:String):RemoteObject {
+		return cast(remoteObjects.getService(name), RemoteObject);
+	}
+
 	// /**
 	// 	Return the WebService for the given name.
 	// 	@param name the name of the WebService.
@@ -220,15 +221,17 @@ class ServiceLocator implements IServiceLocator {
 		return _httpServices;
 	}
 
-	// private var remoteObjects(get, never):RemoteObjects;
-	// private function get_remoteObjects():RemoteObjects {
-	// 	if (_remoteObjects == null) {
-	// 		_remoteObjects = new RemoteObjects();
-	// 		_remoteObjects.timeout = timeout;
-	// 		_remoteObjects.register(this);
-	// 	}
-	// 	return _remoteObjects;
-	// }
+	private var remoteObjects(get, never):RemoteObjects;
+
+	private function get_remoteObjects():RemoteObjects {
+		if (_remoteObjects == null) {
+			_remoteObjects = new RemoteObjects();
+			_remoteObjects.timeout = timeout;
+			_remoteObjects.register(this);
+		}
+		return _remoteObjects;
+	}
+
 	// private var webServices(get, never):WebServices;
 	// private function get_webServices():WebServices {
 	// 	if (_webServices == null) {

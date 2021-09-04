@@ -32,6 +32,7 @@
 
 package com.adobe.cairngorm.business;
 
+import feathers.rpc.remoting.RemoteObject;
 import feathers.rpc.http.HTTPService;
 import utest.Assert;
 import utest.Test;
@@ -41,10 +42,20 @@ class TestServiceLocator extends Test {
 		super();
 	}
 
-	public function testGetServiceLocator():Void {
+	public function teardown():Void {
+		ServiceLocator.releaseInstance();
+	}
+
+	public function testGetHTTPService():Void {
 		var serviceLocator = new MyServiceLocator();
 		var httpService = serviceLocator.getHTTPService("myHttpService");
 		Assert.notNull(httpService);
+	}
+
+	public function testGetRemoteObject():Void {
+		var serviceLocator = new MyServiceLocator();
+		var remoteObject = serviceLocator.getRemoteObject("myRemoteObject");
+		Assert.notNull(remoteObject);
 	}
 }
 
@@ -52,7 +63,9 @@ private class MyServiceLocator extends ServiceLocator {
 	public function new() {
 		super();
 		myHttpService = new HTTPService();
+		myRemoteObject = new RemoteObject();
 	}
 
 	public var myHttpService:HTTPService;
+	public var myRemoteObject:RemoteObject;
 }
