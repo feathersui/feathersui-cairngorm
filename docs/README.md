@@ -1,4 +1,4 @@
-# feathersui-openfl API documentation
+# feathersui-cairngorm API documentation
 
 The API documentation is created with [dox](https://github.com/HaxeFoundation/dox).
 
