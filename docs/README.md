@@ -7,3 +7,5 @@ To build the API documentation, run the following command:
 ```sh
 haxe ./docs.hxml
 ```
+
+The latest docs built from this repository can be found at https://api.feathersui.com/feathersui-cairngorm/unstable/
