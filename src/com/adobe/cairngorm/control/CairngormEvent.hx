@@ -73,7 +73,6 @@ class CairngormEvent extends Event {
 		However, it is recommended that specific classes are created for each type
 		of event to be dispatched.
 	**/
-	@:flash.property
 	public var data(get, set):Dynamic;
 
 	private function get_data():Dynamic {

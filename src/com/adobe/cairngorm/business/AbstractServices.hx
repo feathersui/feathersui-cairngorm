@@ -96,7 +96,6 @@ class AbstractServices implements IServices {
 	/**
 		The timeout for the services. Default to no timeout, same as Flex.
 	**/
-	@:flash.property
 	public var timeout(get, set):Int;
 
 	private function set_timeout(timeoutTime:Int):Int {

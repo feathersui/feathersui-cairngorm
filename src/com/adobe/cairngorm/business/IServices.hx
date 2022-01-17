@@ -76,6 +76,5 @@ interface IServices {
 	/**
 		Set the timeout on the service 
 	**/
-	@:flash.property
 	var timeout(get, set):Int;
 }

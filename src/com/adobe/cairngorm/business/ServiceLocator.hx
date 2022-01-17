@@ -56,7 +56,6 @@ class ServiceLocator implements IServiceLocator {
 	// private var _webServices:WebServices;
 	private var _timeout:Int = 0;
 
-	@:flash.property
 	public static var instance(get, never):ServiceLocator;
 
 	/**
@@ -198,7 +197,6 @@ class ServiceLocator implements IServiceLocator {
 		// webServices.logout();
 	}
 
-	@:flash.property
 	public var timeout(get, set):Int;
 
 	private function set_timeout(timeoutTime:Int):Int {

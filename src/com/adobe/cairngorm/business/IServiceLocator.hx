@@ -87,6 +87,5 @@ interface IServiceLocator {
 	/**
 		Sets the timeout on all services.
 	**/
-	@:flash.property
 	var timeout(get, set):Int;
 }
