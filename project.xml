@@ -13,4 +13,14 @@
 	<haxeflag name="--macro" value="include('com.adobe.cairngorm')"/>
 
 	<template path="templates" if="flash"/>
+
+	<section if="flash">
+		<source path="build_macros/flash"/>
+		<haxeflag name="--macro" value="AddFlashPropertyMeta.find('com.adobe.cairngorm')"/>
+	</section>
+
+	<section if="find_missing_docs">
+		<source path="build_macros/docs"/>
+		<haxeflag name="--macro" value="FindMissingDocs.find('com.adobe.cairngorm')"/>
+	</section>
 </project>
