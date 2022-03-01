@@ -10,12 +10,16 @@ import feathers.controls.Header;
 import feathers.controls.Label;
 import feathers.controls.LayoutGroup;
 import feathers.controls.Panel;
+import feathers.controls.ScrollContainer;
 import feathers.controls.TextInput;
 import feathers.events.TriggerEvent;
 import feathers.layout.AnchorLayout;
 import feathers.layout.AnchorLayoutData;
+import feathers.layout.HorizontalLayoutData;
+import feathers.layout.ResponsiveGridLayout;
+import feathers.layout.ResponsiveGridLayoutData;
 
-class EmployeeLogin extends LayoutGroup {
+class EmployeeLogin extends ScrollContainer {
 	private var model = AppModelLocator.getInstance();
 	private var login_frm:Form;
 	private var username:TextInput;
@@ -29,10 +33,12 @@ class EmployeeLogin extends LayoutGroup {
 	override private function initialize():Void {
 		super.initialize();
 
-		layout = new AnchorLayout();
+		var viewLayout = new ResponsiveGridLayout();
+		viewLayout.setPadding(10.0);
+		layout = viewLayout;
 
 		var panel = new Panel();
-		panel.layoutData = AnchorLayoutData.center();
+		panel.layoutData = new ResponsiveGridLayoutData(12, 0, 8, 2, 6, 3, 4, 4);
 		panel.layout = new AnchorLayout();
 		panel.header = new Header("Cafe Townsend Login");
 		addChild(panel);
@@ -63,6 +69,8 @@ class EmployeeLogin extends LayoutGroup {
 		footer.variant = LayoutGroup.VARIANT_TOOL_BAR;
 		var instructions = new Label();
 		instructions.text = "Username: Feathers   Password: Cairngorm";
+		instructions.wordWrap = true;
+		instructions.layoutData = HorizontalLayoutData.fillHorizontal();
 		footer.addChild(instructions);
 		panel.footer = footer;
 	}

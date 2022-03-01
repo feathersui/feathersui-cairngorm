@@ -11,14 +11,15 @@ import feathers.controls.Header;
 import feathers.controls.LayoutGroup;
 import feathers.controls.ListView;
 import feathers.controls.Panel;
+import feathers.controls.ScrollContainer;
 import feathers.events.ListViewEvent;
 import feathers.events.TriggerEvent;
-import feathers.layout.AnchorLayout;
-import feathers.layout.AnchorLayoutData;
+import feathers.layout.ResponsiveGridLayout;
+import feathers.layout.ResponsiveGridLayoutData;
 import feathers.layout.VerticalLayout;
 import feathers.layout.VerticalLayoutData;
 
-class EmployeeList extends LayoutGroup {
+class EmployeeList extends ScrollContainer {
 	private var model = AppModelLocator.getInstance();
 	private var addEmployee_btn:Button;
 	private var logout_btn:Button;
@@ -31,10 +32,12 @@ class EmployeeList extends LayoutGroup {
 	override private function initialize():Void {
 		super.initialize();
 
-		layout = new AnchorLayout();
+		var viewLayout = new ResponsiveGridLayout();
+		viewLayout.setPadding(10.0);
+		layout = viewLayout;
 
 		var panel = new Panel();
-		panel.layoutData = AnchorLayoutData.center();
+		panel.layoutData = new ResponsiveGridLayoutData(12, 0, 8, 2, 6, 3, 4, 4);
 		panel.layout = new VerticalLayout();
 		addChild(panel);
 
@@ -42,6 +45,7 @@ class EmployeeList extends LayoutGroup {
 
 		var toolBar = new LayoutGroup();
 		toolBar.variant = LayoutGroup.VARIANT_TOOL_BAR;
+		toolBar.layoutData = VerticalLayoutData.fillHorizontal();
 		panel.addChild(toolBar);
 
 		addEmployee_btn = new Button();
@@ -58,7 +62,7 @@ class EmployeeList extends LayoutGroup {
 		employees_li.layoutData = VerticalLayoutData.fill();
 		employees_li.dataProvider = model.employeeListDP;
 		employees_li.itemToText = (item:Employee) -> item.lastname + ", " + item.firstname;
-		employees_li.minHeight = 100.0;
+		employees_li.minHeight = 150.0;
 		employees_li.addEventListener(ListViewEvent.ITEM_TRIGGER, employees_li_itemTriggerHandler);
 		panel.addChild(employees_li);
 	}

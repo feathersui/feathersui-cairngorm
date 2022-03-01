@@ -13,13 +13,16 @@ import feathers.controls.Header;
 import feathers.controls.LayoutGroup;
 import feathers.controls.Panel;
 import feathers.controls.PopUpDatePicker;
+import feathers.controls.ScrollContainer;
 import feathers.controls.TextInput;
 import feathers.core.FocusManager;
 import feathers.events.TriggerEvent;
 import feathers.layout.AnchorLayout;
 import feathers.layout.AnchorLayoutData;
+import feathers.layout.ResponsiveGridLayout;
+import feathers.layout.ResponsiveGridLayoutData;
 
-class EmployeeDetail extends LayoutGroup {
+class EmployeeDetail extends ScrollContainer {
 	private var model = AppModelLocator.getInstance();
 	private var details_frm:Form;
 	private var firstname:TextInput;
@@ -37,10 +40,12 @@ class EmployeeDetail extends LayoutGroup {
 	override private function initialize():Void {
 		super.initialize();
 
-		layout = new AnchorLayout();
+		var viewLayout = new ResponsiveGridLayout();
+		viewLayout.setPadding(10.0);
+		layout = viewLayout;
 
 		var panel = new Panel();
-		panel.layoutData = AnchorLayoutData.center();
+		panel.layoutData = new ResponsiveGridLayoutData(12, 0, 8, 2, 6, 3, 4, 4);
 		panel.layout = new AnchorLayout();
 		addChild(panel);
 
