@@ -24,8 +24,8 @@ import com.feathersui.cafetownsend.view.EmployeeDetail;
 import com.feathersui.cafetownsend.view.EmployeeList;
 import com.feathersui.cafetownsend.view.EmployeeLogin;
 import feathers.controls.Application;
-import feathers.controls.navigators.Route;
-import feathers.controls.navigators.RouterNavigator;
+import feathers.controls.navigators.StackItem;
+import feathers.controls.navigators.StackNavigator;
 import feathers.events.FeathersEvent;
 import feathers.motion.transitions.FadeTransitionBuilder;
 import openfl.events.Event;
@@ -35,7 +35,7 @@ class Main extends Application {
 	private var services = new Services();
 	private var appController = new AppController();
 
-	private var navigator:RouterNavigator;
+	private var navigator:StackNavigator;
 
 	public function new() {
 		super();
@@ -46,21 +46,15 @@ class Main extends Application {
 	override private function initialize():Void {
 		super.initialize();
 
-		navigator = new RouterNavigator();
-		#if feathersui.com
-		// to build for the feathersui.com website, run the following command:
-		// haxelib run openfl build html5 -final --haxedef=feathersui.com
-		navigator.basePath = "/samples/haxe-openfl/cairngorm/cafe-townsend";
-		#end
-
-		refreshRoutes();
-
-		navigator.forwardTransition = new FadeTransitionBuilder().build();
-		navigator.backTransition = new FadeTransitionBuilder().build();
-
+		navigator = new StackNavigator();
+		navigator.addItem(StackItem.withClass("login", EmployeeLogin));
+		navigator.addItem(StackItem.withClass("list", EmployeeList));
+		navigator.addItem(StackItem.withClass("detail", EmployeeDetail));
+		navigator.replaceTransition = new FadeTransitionBuilder().build();
 		addChild(navigator);
 
-		model.addEventListener(AppModelLocator.USER_CHANGE, model_userChangeHandler);
+		navigator.rootItemID = "login";
+
 		model.addEventListener(AppModelLocator.VIEWING_CHANGE, model_viewingChangeHandler);
 	}
 
@@ -69,38 +63,22 @@ class Main extends Application {
 		CairngormEventDispatcher.getInstance().dispatchEvent(cgEvent);
 	}
 
-	private function refreshRoutes():Void {
-		navigator.removeAllItems();
-		if (model.user == null) {
-			navigator.addRoute(Route.withClass("/login", EmployeeLogin));
-			navigator.addRoute(Route.withRedirect("*", "/login"));
-		} else {
-			navigator.addRoute(Route.withClass("/list", EmployeeList));
-			navigator.addRoute(Route.withClass("/detail", EmployeeDetail));
-			navigator.addRoute(Route.withRedirect("*", "/list"));
-		}
-	}
-
 	private function creationCompleteHandler(event:FeathersEvent):Void {
 		loadEmployees();
 	}
 
-	private function model_userChangeHandler(event:Event):Void {
-		refreshRoutes();
-	}
-
 	private function model_viewingChangeHandler(event:Event):Void {
-		var pathname = "/";
+		var newID = null;
 		switch (model.viewing) {
 			case AppModelLocator.EMPLOYEE_LOGIN:
-				pathname = "/login";
+				newID = "login";
 			case AppModelLocator.EMPLOYEE_DETAIL:
-				pathname = "/detail";
+				newID = "detail";
 			case AppModelLocator.EMPLOYEE_LIST:
-				pathname = "/list";
+				newID = "list";
 		}
-		if (navigator.pathname != pathname) {
-			navigator.push(pathname);
+		if (navigator.activeItemID != newID) {
+			navigator.replaceItem(newID);
 		}
 	}
 }
