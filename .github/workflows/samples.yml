@@ -1,0 +1,50 @@
+name: Samples
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build-misc:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: krdlab/setup-haxe@v1
+        with:
+          haxe-version: 4.2.3
+      - name: Set up Haxelib dependencies
+        run: |
+          haxelib install lime --quiet
+          haxelib install openfl --quiet
+          haxelib install feathersui --quiet
+          haxelib dev feathersui-cairngorm ${{ github.workspace }}
+      - name: Build samples/cafe-townsend
+        working-directory: samples/cafe-townsend
+        run: |
+          haxelib run openfl build neko
+          haxelib run openfl build html5
+          haxelib run openfl build flash
+          haxelib run openfl build hl
+  build-air:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: joshtynjala/setup-adobe-air-action@v1
+      - uses: krdlab/setup-haxe@v1
+        with:
+          haxe-version: 4.2.3
+      - name: Set up Haxelib dependencies
+        run: |
+          haxelib install lime --quiet
+          haxelib install openfl --quiet
+          haxelib install feathersui --quiet
+          haxelib dev feathersui-cairngorm ${{ github.workspace }} 
+          haxelib run lime config AIR_SDK ${{ env.AIR_HOME }}
+      - name: Build samples/cafe-townsend
+        working-directory: samples/cafe-townsend
+        run: |
+          haxelib run openfl build air
