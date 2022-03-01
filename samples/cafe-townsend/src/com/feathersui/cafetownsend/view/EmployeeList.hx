@@ -1,5 +1,6 @@
 package com.feathersui.cafetownsend.view;
 
+import feathers.layout.VerticalListLayout;
 import com.adobe.cairngorm.control.CairngormEventDispatcher;
 import com.feathersui.cafetownsend.control.AddNewEmployeeEvent;
 import com.feathersui.cafetownsend.control.LogoutEvent;
@@ -59,10 +60,12 @@ class EmployeeList extends ScrollContainer {
 		toolBar.addChild(logout_btn);
 
 		employees_li = new ListView();
-		employees_li.layoutData = VerticalLayoutData.fill();
+		employees_li.layoutData = VerticalLayoutData.fillHorizontal();
 		employees_li.dataProvider = model.employeeListDP;
 		employees_li.itemToText = (item:Employee) -> item.lastname + ", " + item.firstname;
-		employees_li.minHeight = 150.0;
+		var listLayout = new VerticalListLayout();
+		listLayout.requestedMinRowCount = 5.0;
+		employees_li.layout = listLayout;
 		employees_li.addEventListener(ListViewEvent.ITEM_TRIGGER, employees_li_itemTriggerHandler);
 		panel.addChild(employees_li);
 	}
