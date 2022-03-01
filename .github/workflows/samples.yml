@@ -21,6 +21,7 @@ jobs:
           haxelib install lime --quiet
           haxelib install openfl --quiet
           haxelib install feathersui --quiet
+          haxelib git feathersui-rpc-services https://github.com/feathersui/feathersui-rpc-services.git --quiet
           haxelib dev feathersui-cairngorm ${{ github.workspace }}
       - name: Build samples/cafe-townsend
         working-directory: samples/cafe-townsend
@@ -42,6 +43,7 @@ jobs:
           haxelib install lime --quiet
           haxelib install openfl --quiet
           haxelib install feathersui --quiet
+          haxelib git feathersui-rpc-services https://github.com/feathersui/feathersui-rpc-services.git --quiet
           haxelib dev feathersui-cairngorm ${{ github.workspace }} 
           haxelib run lime config AIR_SDK ${{ env.AIR_HOME }}
       - name: Build samples/cafe-townsend
