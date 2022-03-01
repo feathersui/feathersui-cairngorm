@@ -42,15 +42,17 @@ class EmployeeLogin extends LayoutGroup {
 		panel.addChild(login_frm);
 
 		username = new TextInput();
-		var usernameItem = new FormItem("Username:", username, true);
-		usernameItem.horizontalAlign = JUSTIFY;
-		login_frm.addChild(usernameItem);
+		var username_fi = new FormItem("Username:", username);
+		username_fi.required = true;
+		username_fi.horizontalAlign = JUSTIFY;
+		login_frm.addChild(username_fi);
 
 		password = new TextInput();
 		password.displayAsPassword = true;
-		var passwordItem = new FormItem("Password:", password, true);
-		passwordItem.horizontalAlign = JUSTIFY;
-		login_frm.addChild(passwordItem);
+		var password_fi = new FormItem("Password:", password);
+		password_fi.required = true;
+		password_fi.horizontalAlign = JUSTIFY;
+		login_frm.addChild(password_fi);
 
 		login_btn = new Button();
 		login_btn.text = "Login";

@@ -58,13 +58,15 @@ class EmployeeDetail extends LayoutGroup {
 
 		firstname = new TextInput();
 		firstname.text = model.employeeTemp.firstname;
-		var firstname_fi = new FormItem("First Name:", firstname, true);
+		var firstname_fi = new FormItem("First Name:", firstname);
+		firstname_fi.required = true;
 		firstname_fi.horizontalAlign = JUSTIFY;
 		details_frm.addChild(firstname_fi);
 
 		lastname = new TextInput();
 		lastname.text = model.employeeTemp.lastname;
-		var lastname_fi = new FormItem("Last Name:", lastname, true);
+		var lastname_fi = new FormItem("Last Name:", lastname);
+		lastname_fi.required = true;
 		lastname_fi.horizontalAlign = JUSTIFY;
 		details_frm.addChild(lastname_fi);
 
@@ -76,7 +78,8 @@ class EmployeeDetail extends LayoutGroup {
 
 		email = new TextInput();
 		email.text = model.employeeTemp.email;
-		var email_fi = new FormItem("Email:", email, true);
+		var email_fi = new FormItem("Email:", email);
+		email_fi.required = true;
 		email_fi.horizontalAlign = JUSTIFY;
 		details_frm.addChild(email_fi);
 
