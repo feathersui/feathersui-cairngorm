@@ -72,7 +72,7 @@ class EmployeeDetail extends LayoutGroup {
 
 		startdate = new PopUpDatePicker();
 		startdate.selectedDate = model.employeeTemp.startdate;
-		var startdate_fi = new FormItem("Start Date:", startdate, false);
+		var startdate_fi = new FormItem("Start Date:", startdate);
 		startdate_fi.horizontalAlign = JUSTIFY;
 		details_frm.addChild(startdate_fi);
 
