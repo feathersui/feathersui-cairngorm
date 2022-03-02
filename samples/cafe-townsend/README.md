@@ -1,6 +1,8 @@
 # Cafe Townsend
 
-This example app demonstrates how to use the [feathersui-cairngorm]() framework to organize the code in a [Feathers UI](https://feathersui.com/) application.
+This example app demonstrates how to use the [feathersui-cairngorm](https://github.com/feathersui/feathersui-cairngorm) framework to organize the code in a [Feathers UI](https://feathersui.com/) application.
+
+This project is based on a popular Cairngorm sample for Adobe Flex from the community-managed CairngormDocs website (which no longer exists).
 
 ## Live demo
 

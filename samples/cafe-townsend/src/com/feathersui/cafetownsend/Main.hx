@@ -1,11 +1,12 @@
 /*
-	Cafe Townsend MVC Tutorial Copyright 2006 Adobe
+	Cafe Townsend MVC Tutorial
+
+	Copyright 2006 Adobe
 
 	Converted to feathersui-cairngorm by Bowler Hat LLC
 	https://feathersui.com
 
-	Converted to Cairngorm 2 by Darren Houle
-	lokka_@hotmail.com
+	Converted to Cairngorm 2 (Flex) by Darren Houle
 	http://www.digimmersion.com
 
 	This is released under a Creative Commons license.
