@@ -28,4 +28,4 @@ After installing the libraries above, add them to your OpenFL _project.xml_ file
 
 ## Documentation
 
-- [API Reference](https://api.feathersui.com/feathersui-cairngorm/unstable/)
+- [API Reference](https://api.feathersui.com/feathersui-cairngorm/)
