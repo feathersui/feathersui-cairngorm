@@ -25,3 +25,7 @@ After installing the libraries above, add them to your OpenFL _project.xml_ file
 <haxelib name="feathersui-rpc-services" />
 <haxelib name="feathersui-cairngorm" />
 ```
+
+## Documentation
+
+- [API Reference](https://api.feathersui.com/feathersui-cairngorm/unstable/)
