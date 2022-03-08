@@ -54,6 +54,7 @@ class CairngormError extends Error {
 	}
 }
 
+@:keep
 private class CairngormMessages {
 	public static final C0001E = "Only one {0} instance can be instantiated";
 	public static final C0002E = "Service not found for {0}";
