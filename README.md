@@ -8,10 +8,10 @@ The Cairngorm Microarchitecture is a lightweight yet prescriptive framework for 
 
 Cairngorm is an implementation of design patterns that the consultants at Adobe Consulting have successfully taken from enterprise software development (with technologies including J2EE and .NET) and applied rich Internet application development.
 
-## Requirements
+## Minimum Requirements
 
 - Haxe 4.0
-- OpenFL 9.1
+- OpenFL 8.9.7
 - Feathers UI 1.0
 
 ## Installation
