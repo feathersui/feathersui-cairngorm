@@ -39,11 +39,49 @@ import openfl.errors.Error;
 	Used to substitute data in error messages.
 **/
 class CairngormError extends Error {
-	public function new(errorCode:String, ...rest) {
+	public function new(errorCode:String,
+			#if (haxe_ver >= 4.2)...rest:Dynamic #else p1:Dynamic = null, p2:Dynamic = null, p3:Dynamic = null, p4:Dynamic = null, p5:Dynamic = null #end) {
+		#if (haxe_ver < 4.2)
+		var rest:Array<Dynamic> = [];
+		if (p1 != null) {
+			rest.push(p1);
+		}
+		if (p2 != null) {
+			rest.push(p3);
+		}
+		if (p3 != null) {
+			rest.push(p3);
+		}
+		if (p4 != null) {
+			rest.push(p4);
+		}
+		if (p5 != null) {
+			rest.push(p5);
+		}
+		#end
 		super(formatMessage(errorCode, rest.toString()));
 	}
 
-	private function formatMessage(errorCode:String, ...rest:String):String {
+	private function formatMessage(errorCode:String,
+			#if (haxe_ver >= 4.2)...rest:String #else p1:String = null, p2:String = null, p3:String = null, p4:String = null, p5:Dynamic = null #end):String {
+		#if (haxe_ver < 4.2)
+		var rest:Array<String> = [];
+		if (p1 != null) {
+			rest.push(p1);
+		}
+		if (p2 != null) {
+			rest.push(p3);
+		}
+		if (p3 != null) {
+			rest.push(p3);
+		}
+		if (p4 != null) {
+			rest.push(p4);
+		}
+		if (p5 != null) {
+			rest.push(p5);
+		}
+		#end
 		var i18nErrorMessage:String = Reflect.field(CairngormMessages, errorCode);
 		var message = i18nErrorMessage;
 		for (i in 0...rest.length) {
