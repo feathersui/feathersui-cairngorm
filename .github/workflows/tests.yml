@@ -9,13 +9,41 @@ on:
       - master
 
 jobs:
+  test-html5:
+    strategy:
+      matrix:
+        haxe-version: [4.2.3]
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: krdlab/setup-haxe@v1
+        with:
+          haxe-version: ${{ matrix.haxe-version }}
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "16"
+      - name: Set up Haxelib dependencies
+        run: |
+          haxelib install lime --quiet
+          haxelib install openfl --quiet
+          haxelib install feathersui --quiet
+          haxelib git feathersui-rpc-services https://github.com/feathersui/feathersui-rpc-services.git --quiet
+          haxelib install utest --quiet
+          haxelib dev feathersui-cairngorm $GITHUB_WORKSPACE
+      - name: Set up Node.js dependencies
+        working-directory: test
+        run: |
+          npm ci
+      - name: Run Tests
+        working-directory: test
+        run: |
+          haxelib run openfl build html5 -final -Dplaywright
+          node playwright-runner.js
   test-neko:
     strategy:
       matrix:
         haxe-version: [4.2.3]
-
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v2
       - uses: krdlab/setup-haxe@v1
@@ -37,9 +65,7 @@ jobs:
     strategy:
       matrix:
         haxe-version: [4.2.3]
-
     runs-on: windows-latest
-
     steps:
       - uses: actions/checkout@v2
       - uses: joshtynjala/setup-adobe-air-action@v1
