@@ -9,7 +9,7 @@
   "dependencies": {
     "openfl": "",
     "feathersui": "",
-    "feathersui-rpc-services": ""
+    "feathersui-rpc-services": "git:https://github.com/feathersui/feathersui-rpc-services.git"
   },
   "contributors": ["bowlerhat"],
   "releasenote": "Initial release"

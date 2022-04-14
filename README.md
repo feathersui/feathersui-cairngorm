@@ -19,7 +19,6 @@ Cairngorm is an implementation of design patterns that the consultants at Adobe 
 This library is not yet available on Haxelib, so you'll need to install it and its dependencies from Github.
 
 ```sh
-haxelib git feathersui-rpc-services https://github.com/feathersui/feathersui-rpc-services.git
 haxelib git feathersui-cairngorm https://github.com/feathersui/feathersui-cairngorm.git
 ```
 
