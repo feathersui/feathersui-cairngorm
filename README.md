@@ -24,10 +24,9 @@ haxelib git feathersui-cairngorm https://github.com/feathersui/feathersui-cairng
 
 ## Project Configuration
 
-After installing the libraries above, add them to your OpenFL _project.xml_ file:
+After installing the library above, add it to your OpenFL _project.xml_ file:
 
 ```xml
-<haxelib name="feathersui-rpc-services" />
 <haxelib name="feathersui-cairngorm" />
 ```
 
