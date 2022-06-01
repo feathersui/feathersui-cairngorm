@@ -1,4 +1,4 @@
-body .navbar .brand {
+body .navbar .brand:first-of-type {
 	background: url(./feathers-ui-icon-color.png) center left no-repeat;
 	background-size: 32px 32px;
 	padding-left: 40px;
