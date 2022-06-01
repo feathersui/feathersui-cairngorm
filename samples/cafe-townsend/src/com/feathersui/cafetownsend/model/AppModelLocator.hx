@@ -16,7 +16,7 @@
 
 package com.feathersui.cafetownsend.model;
 
-import com.adobe.cairngorm.model.ModelLocator;
+import com.adobe.cairngorm.model.IModelLocator;
 import com.feathersui.cafetownsend.vo.Employee;
 import com.feathersui.cafetownsend.vo.User;
 import feathers.data.ArrayCollection;
@@ -24,7 +24,7 @@ import openfl.errors.Error;
 import openfl.events.Event;
 import openfl.events.EventDispatcher;
 
-class AppModelLocator extends EventDispatcher implements ModelLocator {
+class AppModelLocator extends EventDispatcher implements IModelLocator {
 	public static final VIEWING_CHANGE = "viewingChange";
 	public static final EMPLOYEE_LIST_DP_CHANGE = "employeeListDPChange";
 	public static final EMPLOYEE_TEMP_CHANGE = "employeeTempChange";

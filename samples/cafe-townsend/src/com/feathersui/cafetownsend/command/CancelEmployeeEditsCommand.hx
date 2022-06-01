@@ -16,11 +16,11 @@
 
 package com.feathersui.cafetownsend.command;
 
-import com.adobe.cairngorm.commands.Command;
+import com.adobe.cairngorm.commands.ICommand;
 import com.adobe.cairngorm.control.CairngormEvent;
 import com.feathersui.cafetownsend.model.AppModelLocator;
 
-class CancelEmployeeEditsCommand implements Command {
+class CancelEmployeeEditsCommand implements ICommand {
 	private var model = AppModelLocator.getInstance();
 
 	public function execute(cgEvent:CairngormEvent):Void {

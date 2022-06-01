@@ -16,7 +16,7 @@
 
 package com.feathersui.cafetownsend.command;
 
-import com.adobe.cairngorm.commands.Command;
+import com.adobe.cairngorm.commands.ICommand;
 import com.adobe.cairngorm.control.CairngormEvent;
 import com.feathersui.cafetownsend.business.LoadEmployeesDelegate;
 import com.feathersui.cafetownsend.model.AppModelLocator;
@@ -25,7 +25,7 @@ import feathers.data.ArrayCollection;
 import feathers.rpc.IResponder;
 import feathers.rpc.events.ResultEvent;
 
-class LoadEmployeesCommand implements Command implements IResponder {
+class LoadEmployeesCommand implements ICommand implements IResponder {
 	private var model = AppModelLocator.getInstance();
 
 	public function execute(cgEvent:CairngormEvent):Void {
