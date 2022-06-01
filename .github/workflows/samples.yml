@@ -30,6 +30,13 @@ jobs:
           haxelib run openfl build html5
           haxelib run openfl build flash
           haxelib run openfl build hl
+      - name: Build samples/todomvc
+        working-directory: samples/todomvc
+        run: |
+          haxelib run openfl build neko
+          haxelib run openfl build html5
+          haxelib run openfl build flash
+          haxelib run openfl build hl
   build-air:
     runs-on: windows-latest
     steps:
@@ -48,5 +55,9 @@ jobs:
           haxelib run lime config AIR_SDK ${{ env.AIR_HOME }}
       - name: Build samples/cafe-townsend
         working-directory: samples/cafe-townsend
+        run: |
+          haxelib run openfl build air
+      - name: Build samples/todomvc
+        working-directory: samples/todomvc
         run: |
           haxelib run openfl build air
