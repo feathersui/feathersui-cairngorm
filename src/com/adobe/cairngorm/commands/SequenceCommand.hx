@@ -36,10 +36,9 @@ import com.adobe.cairngorm.control.CairngormEventDispatcher;
 import com.adobe.cairngorm.control.CairngormEvent;
 
 /**
-	The SequenceCommand is provided as a "psuedo-abstract" (since ActionScript
-	has no real concept of abstract classes) base-class that can be extended when
-	you wish to chain commands together for a single user-gesture, or establish
-	some simple form of decision-based workflow.
+	The SequenceCommand is provided as an abstract base-class that can be
+	extended when you wish to chain commands together for a single user-gesture,
+	or establish some simple form of decision-based workflow.
 
 	By extending SequenceCommand, you can specify the event that should be 
 	broadcast to the controller (causing another command execution
@@ -91,20 +90,24 @@ class SequenceCommand implements ICommand {
 	/** 
 		Abstract implementation of the execute() method.
 
-		ActionScript does not explicity support abstract methods and abstract classes, so this concrete 
-		implementation of the interface method must be overridden by the developer.
+		Haxe does not explicity support abstract methods and abstract classes,
+		so this concrete implementation of the interface method must be
+		overridden by the developer.
 	**/
 	public function execute(event:CairngormEvent):Void {
-		// abstract, so this method must be provided.   Rather than convolute additional framework classes to enforce
-		// abstract classes, we instead delegate responsibility to the developer of a SequenceCommand to ensure that
-		// they provide a concrete implementation of this method.
+		// abstract, so this method must be provided.
+		// Rather than convolute additional framework classes to enforce
+		// abstract classes, we instead delegate responsibility to the developer
+		// of a SequenceCommand to ensure that they provide a concrete
+		// implementation of this method.
 	}
 
 	/**
 		Call to execute the next command in the sequence.
 
-		Called explicitly by the developer within a concrete SequenceCommand implementation, this method causes the
-		event registered with nextEvent to be broadcast, for the next command in the sequence to be called 
+		Called explicitly by the developer within a concrete `SequenceCommand`
+		implementation, this method causes the event registered with `nextEvent`
+		to be broadcast, for the next command in the sequence to be called 
 		without further user-gesture.
 	**/
 	public function executeNextCommand():Void {
