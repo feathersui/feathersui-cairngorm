@@ -116,8 +116,8 @@ class Services extends ServiceLocator {
 
 ## Minimum Requirements
 
-- Haxe 4.0
-- OpenFL 8.9.7
+- Haxe 4.2
+- OpenFL 9.2.0
 - Feathers UI 1.0
 
 ## Installation
