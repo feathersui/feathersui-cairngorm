@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project>
-	<meta title="CafeTownsend" package="com.feathersui.samples.cairngorm CafeTownsend" version="1.0.0" company="Bowler Hat LLC"/>
+	<meta title="CafeTownsend" package="com.feathersui.samples.cairngorm.CafeTownsend" version="1.0.0" company="Bowler Hat LLC"/>
 	<meta title="Cafe Townsend Cairngorm — Feathers UI Samples" if="html5"/>
 	<app main="com.feathersui.cafetownsend.Main" file="CafeTownsend"/>
 
