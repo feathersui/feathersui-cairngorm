@@ -17,5 +17,6 @@
 
 	<icon path="assets/icons/feathersui-icon.svg"/>
 
-	<assets path="assets/data" rename="data"/>
+	<!-- copies data/Employees.xml to output -->
+	<assets path="assets/data" rename="data" embed="false"/>
 </project>
