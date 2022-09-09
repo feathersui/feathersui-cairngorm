@@ -4,7 +4,7 @@ This example app demonstrates how to create [TodoMVC](https://todomvc.com) using
 
 ## Live demo
 
-A build of the [_cafe-townsend_ sample](https://feathersui.com/samples/haxe-openfl/cairngorm/todomvc/) is hosted on the Feathers UI website, and it may be viewed in any modern web browser.
+A build of the [_todomvc_ sample](https://feathersui.com/samples/haxe-openfl/cairngorm/todomvc/) is hosted on the Feathers UI website, and it may be viewed in any modern web browser.
 
 ## Run locally
 
@@ -12,7 +12,7 @@ This project includes an [_project.xml_](https://lime.software/docs/project-file
 
 ### Prerequisites
 
-- [Install Haxe 4.0.0 or newer](https://haxe.org/download/)
+- [Install Haxe 4.1 or newer](https://haxe.org/download/)
 - [Install Feathers UI from Haxelib](https://feathersui.com/learn/haxe-openfl/installation/)
 
 ### Command Line
