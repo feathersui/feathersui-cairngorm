@@ -1,5 +1,5 @@
 # feathersui-cairngorm Change Log
 
-## 2.3.0-alpha.1 (????-??-??)
+## 1.0.0 (2022-09-12)
 
 - Initial release

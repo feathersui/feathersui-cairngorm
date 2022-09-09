@@ -116,16 +116,16 @@ class Services extends ServiceLocator {
 
 ## Minimum Requirements
 
-- Haxe 4.2
-- OpenFL 9.2.0
+- Haxe 4.1
+- OpenFL 9.2
 - Feathers UI 1.0
 
 ## Installation
 
-This library is not yet available on Haxelib, so you'll need to install it and its dependencies from Github.
+Run the following command in a terminal to install [feathersui-cairngorm](https://lib.haxe.org/p/feathersui-cairngorm) from Haxelib.
 
 ```sh
-haxelib git feathersui-cairngorm https://github.com/feathersui/feathersui-cairngorm.git
+haxelib install feathersui-cairngorm
 ```
 
 ## Project Configuration

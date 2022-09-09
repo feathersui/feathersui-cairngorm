@@ -4,12 +4,12 @@
   "license": "BSD",
   "tags": ["openfl", "feathersui", "cairngorm", "microarchitecture"],
   "description": "Cairngorm framework for OpenFL",
-  "version": "2.3.0-alpha.1",
+  "version": "1.0.0",
   "classPath": "src",
   "dependencies": {
     "openfl": "",
     "feathersui": "",
-    "feathersui-rpc-services": "git:https://github.com/feathersui/feathersui-rpc-services.git"
+    "feathersui-rpc-services": ""
   },
   "contributors": ["bowlerhat"],
   "releasenote": "Initial release"
