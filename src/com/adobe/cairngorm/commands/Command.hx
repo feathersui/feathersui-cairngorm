@@ -33,7 +33,7 @@
 package com.adobe.cairngorm.commands;
 
 /**
-	**Deprecated as of Cairngorm 2.1, replaced by `com.adobe.cairngorm.commands.ICommand`**
+	Deprecated, replaced by `com.adobe.cairngorm.commands.ICommand`.
 
 	The Command interface enforces the contract between the Front
 	Controller and concrete command classes in your application.

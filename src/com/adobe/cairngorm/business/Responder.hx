@@ -33,7 +33,7 @@
 package com.adobe.cairngorm.business;
 
 /**
-	**Deprecated as of Cairngorm 2.1, replaced by `mx.rpc.IResponder`**
+	Deprecated, replaced by `mx.rpc.IResponder`.
 
 	The Responder interface is implemented by classes that wish to handle
 	data returned as the result of a service-call to the server.

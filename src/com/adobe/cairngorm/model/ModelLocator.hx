@@ -33,7 +33,7 @@
 package com.adobe.cairngorm.model;
 
 /**
-	**Deprecated as of Cairngorm 2.1, replaced by `com.adobe.cairngorm.model.IModelLocator`**
+	Deprecated, replaced by `com.adobe.cairngorm.model.IModelLocator`.
 
 	Marker interface used to mark the custom ModelLocator.
 

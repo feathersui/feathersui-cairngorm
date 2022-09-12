@@ -97,7 +97,7 @@ class ServiceLocator implements IServiceLocator {
 	}
 
 	/**
-		**Deprecated as of Cairngorm 2.1**
+		Deprecated.
 
 		Returns the service defined for the id, to allow services to be looked up
 		using the ServiceLocator by a canonical name.
@@ -114,7 +114,7 @@ class ServiceLocator implements IServiceLocator {
 	}
 
 	/**
-		**Deprecated as of Cairngorm 2.1**
+		Deprecated.
 
 		Returns an AbstractInvoker defined for the id, to allow services to be looked up
 		using the ServiceLocator by a canonical name.

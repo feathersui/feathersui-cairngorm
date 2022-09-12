@@ -33,7 +33,7 @@
 package com.adobe.cairngorm.view;
 
 /**
-	**Deprecated as of Cairngorm 2.1.**
+	Deprecated.
 
 	The ViewLocator is a singleton class, that is used to retreive ViewHelper
 	classes that can manipulate (get/set/switch) the user interface of a

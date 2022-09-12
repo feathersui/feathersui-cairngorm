@@ -36,7 +36,7 @@ import openfl.events.IEventDispatcher;
 import openfl.events.Event;
 
 /**
-	**Deprecated as of Cairngorm 2.1.**
+	Deprecated.
 
 	Used to isolate command classes from the implementation details of a view.
 

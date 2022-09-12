@@ -33,7 +33,7 @@
 package com.adobe.cairngorm.vo;
 
 /**
-	**Deprecated as of Cairngorm 2.1, replaced by `com.adobe.cairngorm.vo.IValueObject`**
+	Deprecated, replaced by `com.adobe.cairngorm.vo.IValueObject`.
 
 	The ValueObject interface is a marker interface that improves
 	readability of code by identifying the classes within a Cairngorm
