@@ -3,6 +3,7 @@
 	
 	<meta title="Cairngorm Tests" package="com.adobe.cairngorm.tests" version="1.0.0" company="Bowler Hat LLC"/>
 	<app main="TestMain" file="CairngormTests"/>
+	<window hidden="true"/>
 
 	<source path="src"/>
 	<source path="../src"/>
