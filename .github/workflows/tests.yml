@@ -15,11 +15,11 @@ jobs:
         haxe-version: [4.1.5]
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: krdlab/setup-haxe@v1
         with:
           haxe-version: ${{ matrix.haxe-version }}
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
           node-version: "16"
       - name: Set up Haxelib dependencies
@@ -45,7 +45,7 @@ jobs:
         haxe-version: [4.1.5]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: krdlab/setup-haxe@v1
         with:
           haxe-version: ${{ matrix.haxe-version }}
@@ -66,7 +66,7 @@ jobs:
         haxe-version: [4.1.5]
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: krdlab/setup-haxe@v1
         with:
           haxe-version: ${{ matrix.haxe-version }}
@@ -87,7 +87,7 @@ jobs:
         haxe-version: [4.1.5]
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: joshtynjala/setup-adobe-air-action@v1
       - uses: krdlab/setup-haxe@v1
         with:
