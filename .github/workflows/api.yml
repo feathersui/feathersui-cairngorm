@@ -22,7 +22,7 @@ jobs:
           haxelib install feathersui --quiet
           haxelib install feathersui-rpc-services --quiet
           haxelib install dox --quiet
-          haxelib dev feathersui-cairngorm $GITHUB_WORKSPACE
+          haxelib dev feathersui-cairngorm ${{ github.workspace }}
       - name: Build API reference
         working-directory: docs
         run: haxe docs.hxml

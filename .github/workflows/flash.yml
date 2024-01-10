@@ -21,6 +21,6 @@ jobs:
           haxelib install openfl --quiet
           haxelib install feathersui --quiet
           haxelib install feathersui-rpc-services --quiet
-          haxelib dev feathersui-cairngorm $GITHUB_WORKSPACE
+          haxelib dev feathersui-cairngorm ${{ github.workspace }}
       - name: Build Flash .swc library
         run: haxelib run openfl build flash -debug
