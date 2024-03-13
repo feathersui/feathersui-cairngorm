@@ -13,7 +13,7 @@ jobs:
         haxe-version: [4.1.5, 4.2.5, 4.3.2]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: krdlab/setup-haxe@v1
         with:
           haxe-version: ${{ matrix.haxe-version }}
@@ -45,7 +45,7 @@ jobs:
         haxe-version: [4.1.5, 4.2.5, 4.3.2]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: krdlab/setup-haxe@v1
         with:
           haxe-version: ${{ matrix.haxe-version }}
@@ -66,7 +66,7 @@ jobs:
         haxe-version: [4.1.5, 4.2.5, 4.3.2]
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: krdlab/setup-haxe@v1
         with:
           haxe-version: ${{ matrix.haxe-version }}
@@ -87,7 +87,7 @@ jobs:
         haxe-version: [4.1.5, 4.2.5, 4.3.2]
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: joshtynjala/setup-adobe-air-action@v2
         with:
           air-version: "33.1"
