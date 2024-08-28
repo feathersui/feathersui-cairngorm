@@ -32,6 +32,7 @@
 
 package com.adobe.cairngorm.business;
 
+#if feathersui_rpc_services
 import feathers.rpc.remoting.RemoteObject;
 
 /**
@@ -122,3 +123,4 @@ class RemoteObjects extends AbstractServices {
 		}
 	}
 }
+#end

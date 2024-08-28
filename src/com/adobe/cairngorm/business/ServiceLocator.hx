@@ -32,10 +32,12 @@
 
 package com.adobe.cairngorm.business;
 
+#if feathersui_rpc_services
 import feathers.rpc.remoting.RemoteObject;
 import feathers.rpc.AbstractInvoker;
 import feathers.rpc.AbstractService;
 import feathers.rpc.http.HTTPService;
+#end
 
 /**
 	The ServiceLocator allows service to be located and security
@@ -51,9 +53,12 @@ import feathers.rpc.http.HTTPService;
 class ServiceLocator implements IServiceLocator {
 	private static var _instance:ServiceLocator;
 
+	#if feathersui_rpc_services
 	private var _httpServices:HTTPServices;
 	private var _remoteObjects:RemoteObjects;
+
 	// private var _webServices:WebServices;
+	#end
 	private var _timeout:Int = 0;
 
 	public static var instance(get, never):ServiceLocator;
@@ -96,6 +101,7 @@ class ServiceLocator implements IServiceLocator {
 		_instance = this;
 	}
 
+	#if feathersui_rpc_services
 	/**
 		Deprecated.
 
@@ -156,6 +162,7 @@ class ServiceLocator implements IServiceLocator {
 	// public function getWebService(name:String):WebService {
 	// 	return cast(webServices.getService(name), WebService);
 	// }
+	#end
 
 	/**
 		Set the credentials for all registered services.
@@ -164,9 +171,11 @@ class ServiceLocator implements IServiceLocator {
 		@param password the password to set.
 	**/
 	public function setCredentials(username:String, password:String):Void {
+		#if feathersui_rpc_services
 		httpServices.setCredentials(username, password);
 		// remoteObjects.setCredentials(username, password);
 		// webServices.setCredentials(username, password);
+		#end
 	}
 
 	/**
@@ -175,15 +184,18 @@ class ServiceLocator implements IServiceLocator {
 		@param password the password to set.
 	**/
 	public function setRemoteCredentials(username:String, password:String):Void {
+		#if feathersui_rpc_services
 		httpServices.setRemoteCredentials(username, password);
 		// remoteObjects.setRemoteCredentials(username, password);
 		// webServices.setRemoteCredentials(username, password);
+		#end
 	}
 
 	/**
 		Logs the user out of all registered services.
 	**/
 	public function logout():Void {
+		#if feathersui_rpc_services
 		// First release the resources held by the service. We release the
 		// resources first as the logout logs the user out at a channel level.
 		httpServices.release();
@@ -194,6 +206,7 @@ class ServiceLocator implements IServiceLocator {
 		httpServices.logout();
 		// remoteObjects.logout();
 		// webServices.logout();
+		#end
 	}
 
 	public var timeout(get, set):Int;
@@ -207,6 +220,7 @@ class ServiceLocator implements IServiceLocator {
 		return _timeout;
 	}
 
+	#if feathersui_rpc_services
 	private var httpServices(get, never):HTTPServices;
 
 	private function get_httpServices():HTTPServices {
@@ -238,6 +252,7 @@ class ServiceLocator implements IServiceLocator {
 	// 	}
 	// 	return _webServices;
 	// }
+	#end
 
 	/**
 		Return the service with the given id.

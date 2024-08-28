@@ -32,6 +32,7 @@
 
 package com.adobe.cairngorm.business;
 
+#if feathersui_rpc_services
 import feathers.rpc.http.HTTPService;
 import com.adobe.cairngorm.CairngormMessageCodes;
 
@@ -123,3 +124,4 @@ class HTTPServices extends AbstractServices {
 		}
 	}
 }
+#end
