@@ -1,0 +1,131 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  haxelib:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: krdlab/setup-haxe@v1
+        with:
+          haxe-version: 4.3.4
+      - name: Package Haxelib
+        working-directory: haxelib
+        run: haxe haxelib.hxml
+      - uses: actions/upload-artifact@v4
+        with:
+          name: feathersui-cairngorm-haxelib
+          path: bin/haxelib/
+          if-no-files-found: error
+
+  api:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: krdlab/setup-haxe@v1
+        with:
+          haxe-version: 4.1.5
+      - name: Set up Haxelib dependencies
+        run: |
+          haxelib install lime --quiet
+          haxelib install openfl --quiet
+          haxelib install feathersui --quiet
+          haxelib install feathersui-rpc-services --quiet
+          haxelib install dox --quiet
+          haxelib dev feathersui-cairngorm ${{ github.workspace }}
+      - name: Build API reference
+        working-directory: docs
+        run: haxe docs.hxml
+      - uses: actions/upload-artifact@v4
+        with:
+          name: feathersui-cairngorm-docs
+          path: bin/api/
+          if-no-files-found: error
+      - name: Deploy to unstable
+        if: ${{ github.event_name != 'pull_request' }}
+        uses: garygrossgarten/github-action-scp@release
+        with:
+          local: bin/api
+          remote: api.feathersui.com/feathersui-cairngorm/unstable
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          password: ${{ secrets.SSH_PASS }}
+
+  flash:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: krdlab/setup-haxe@v1
+        with:
+          haxe-version: 4.1.5
+      - name: Set up Haxelib dependencies
+        run: |
+          haxelib install lime --quiet
+          haxelib install openfl --quiet
+          haxelib install feathersui --quiet
+          haxelib install feathersui-rpc-services --quiet
+          haxelib dev feathersui-cairngorm ${{ github.workspace }}
+      - name: Build Flash .swc library
+        run: haxelib run openfl build flash -debug
+
+  samples-misc:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: krdlab/setup-haxe@v1
+        with:
+          haxe-version: 4.1.5
+      - name: Set up Haxelib dependencies
+        run: |
+          haxelib install lime --quiet
+          haxelib install openfl --quiet
+          haxelib install feathersui --quiet
+          haxelib install feathersui-rpc-services --quiet
+          haxelib dev feathersui-cairngorm ${{ github.workspace }}
+      - name: Build samples/cafe-townsend
+        working-directory: samples/cafe-townsend
+        run: |
+          haxelib run openfl build neko
+          haxelib run openfl build html5
+          haxelib run openfl build flash
+          haxelib run openfl build hl
+      - name: Build samples/todomvc
+        working-directory: samples/todomvc
+        run: |
+          haxelib run openfl build neko
+          haxelib run openfl build html5
+          haxelib run openfl build flash
+          haxelib run openfl build hl
+
+  samples-air:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: joshtynjala/setup-adobe-air-action@v2
+        with:
+          air-version: "33.1"
+          accept-license: true
+      - uses: krdlab/setup-haxe@v1
+        with:
+          haxe-version: 4.1.5
+      - name: Set up Haxelib dependencies
+        run: |
+          haxelib install lime --quiet
+          haxelib install openfl --quiet
+          haxelib install feathersui --quiet
+          haxelib install feathersui-rpc-services --quiet
+          haxelib dev feathersui-cairngorm ${{ github.workspace }} 
+          haxelib run lime config AIR_SDK ${{ env.AIR_HOME }}
+      - name: Build samples/cafe-townsend
+        working-directory: samples/cafe-townsend
+        run: |
+          haxelib run openfl build air
+      - name: Build samples/todomvc
+        working-directory: samples/todomvc
+        run: |
+          haxelib run openfl build air

@@ -57,3 +57,10 @@ To run tests with HTML/JS, run the following command:
 ```sh
 openfl test html5
 ```
+
+Alternatively, you can run HTML/JS tests with Playwright, in all three of: Chromium, Firefox, and Webkit.
+
+```sh
+haxelib run openfl build html5 -final -Dplaywright
+node playwright-runner.js
+```
