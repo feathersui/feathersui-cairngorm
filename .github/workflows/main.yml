@@ -10,14 +10,14 @@ jobs:
   haxelib:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: krdlab/setup-haxe@v1
+      - uses: actions/checkout@v5
+      - uses: krdlab/setup-haxe@8f35d1215b93e940a76f9470e22e8a5ba6149598
         with:
           haxe-version: 4.3.4
       - name: Package Haxelib
         working-directory: haxelib
         run: haxe haxelib.hxml
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v5
         with:
           name: feathersui-cairngorm-haxelib
           path: bin/haxelib/
@@ -26,8 +26,8 @@ jobs:
   api:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: krdlab/setup-haxe@v1
+      - uses: actions/checkout@v5
+      - uses: krdlab/setup-haxe@8f35d1215b93e940a76f9470e22e8a5ba6149598
         with:
           haxe-version: 4.1.5
       - name: Set up Haxelib dependencies
@@ -41,7 +41,7 @@ jobs:
       - name: Build API reference
         working-directory: docs
         run: haxe docs.hxml
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v5
         with:
           name: feathersui-cairngorm-docs
           path: bin/api/
@@ -59,8 +59,8 @@ jobs:
   flash:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: krdlab/setup-haxe@v1
+      - uses: actions/checkout@v5
+      - uses: krdlab/setup-haxe@8f35d1215b93e940a76f9470e22e8a5ba6149598
         with:
           haxe-version: 4.1.5
       - name: Set up Haxelib dependencies
@@ -76,8 +76,8 @@ jobs:
   samples-misc:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: krdlab/setup-haxe@v1
+      - uses: actions/checkout@v5
+      - uses: krdlab/setup-haxe@8f35d1215b93e940a76f9470e22e8a5ba6149598
         with:
           haxe-version: 4.1.5
       - name: Set up Haxelib dependencies
@@ -105,12 +105,12 @@ jobs:
   samples-air:
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: joshtynjala/setup-adobe-air-action@v2
         with:
           air-version: "33.1"
           accept-license: true
-      - uses: krdlab/setup-haxe@v1
+      - uses: krdlab/setup-haxe@8f35d1215b93e940a76f9470e22e8a5ba6149598
         with:
           haxe-version: 4.1.5
       - name: Set up Haxelib dependencies
